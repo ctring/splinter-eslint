@@ -1,0 +1,38 @@
+{
+  "name": "@splinter/eslint-typeorm-plugin",
+  "version": "1.0.8",
+  "description": "",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./messages": {
+      "types": "./dist/src/messages/index.d.ts",
+      "default": "./dist/src/messages/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && npm run set-up-eslint-test",
+    "test": "mocha dist/tests --recursive --timeout 5000",
+    "clean": "rimraf dist/",
+    "rimraf": "./node_modules/rimraf/bin.js",
+    "set-up-eslint-test": "rsync ./tests/test-tsconfig.json ./dist/tests/test-tsconfig.json && touch ./dist/tests/file.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@typescript-eslint/utils": "^5.57.1",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.37.0",
+    "@types/node": "^18.15.12",
+    "eslint": "^8.38.0",
+    "eslint-plugin-eslint-plugin": "^5.0.8",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.0.4"
+  }
+}
