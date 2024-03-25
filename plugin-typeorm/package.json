@@ -1,6 +1,6 @@
 {
-  "name": "@splinter/eslint-plugin-typeorm",
-  "version": "1.0.8",
+  "name": "@ctring/splinter-eslint-plugin-typeorm",
+  "version": "1.0.0",
   "description": "",
   "exports": {
     ".": "./dist/src/index.js",
