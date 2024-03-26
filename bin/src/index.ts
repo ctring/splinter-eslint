@@ -5,6 +5,7 @@ import { ESLint } from "eslint";
 import { parseArgs } from "util";
 import { glob } from "glob";
 import pluralize from "pluralize";
+import { JsonMessage } from '@ctring/eslint-plugin-typeorm/messages';
 
 export interface Result {
   filePath: string;
@@ -12,7 +13,7 @@ export interface Result {
   toLine: number;
   fromColumn: number;
   toColumn: number;
-  result: any;
+  message: JsonMessage;
 }
 
 export interface Output {
@@ -91,7 +92,7 @@ async function analyze(
 
     const tryParse = (message: string) => {
       try {
-        return JSON.parse(message);
+        return JSON.parse(message) as JsonMessage;
       } catch (e) {
         return null;
       }
@@ -110,7 +111,7 @@ async function analyze(
               toLine: (message.endLine || message.line) - 1,
               fromColumn: message.column - 1,
               toColumn: (message.endColumn || message.column) - 1,
-              result: parsed,
+              message: parsed,
             };
             results.push(result);
           } else {

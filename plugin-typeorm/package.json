@@ -1,6 +1,6 @@
 {
   "name": "@ctring/eslint-plugin-typeorm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "exports": {
     ".": "./dist/src/index.js",
