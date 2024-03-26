@@ -6,7 +6,7 @@ import { parseArgs } from "util";
 import { glob } from "glob";
 import pluralize from "pluralize";
 
-interface Result {
+export interface Result {
   filePath: string;
   fromLine: number;
   toLine: number;
@@ -15,7 +15,7 @@ interface Result {
   result: any;
 }
 
-interface Output {
+export interface Output {
   results: Result[];
   doneFiles: string[];
 }
