@@ -1,5 +1,5 @@
 {
-  "name": "@ctring/splinter-eslint-plugin-typeorm",
+  "name": "@ctring/eslint-plugin-typeorm",
   "version": "1.0.0",
   "description": "",
   "exports": {

@@ -1,5 +1,5 @@
 {
-  "name": "@splinter/eslint",
+  "name": "@ctring/splinter-eslint",
   "version": "1.0.2",
   "description": "",
   "main": "index.js",
@@ -15,14 +15,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/pluralize": "^0.0.33",
     "typescript": "^5.4.3"
   },
   "dependencies": {
+    "@ctring/eslint-plugin-typeorm": "^1.0.0",
     "@types/eslint": "^8.56.6",
     "@types/node": "^20.11.30",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
-    "@splinter/eslint-plugin-typeorm": "^1.0.8",
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "glob": "^10.3.10",
+    "minimist": "^1.2.8",
+    "pluralize": "^8.0.0"
   }
 }
