@@ -1,6 +1,6 @@
 {
   "name": "@ctring/splinter-eslint",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,12 +16,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/pluralize": "^0.0.33",
+    "@types/eslint": "^8.56.6",
+    "@types/node": "^20.11.30",
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "@ctring/eslint-plugin-typeorm": "^1.0.0",
-    "@types/eslint": "^8.56.6",
-    "@types/node": "^20.11.30",
+    "@ctring/eslint-plugin-typeorm": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "eslint": "^8.57.0",

@@ -14,7 +14,8 @@
     "test": "mocha dist/tests --recursive --timeout 5000",
     "clean": "rimraf dist/",
     "rimraf": "./node_modules/rimraf/bin.js",
-    "set-up-eslint-test": "rsync ./tests/test-tsconfig.json ./dist/tests/test-tsconfig.json && touch ./dist/tests/file.ts"
+    "set-up-eslint-test": "rsync ./tests/test-tsconfig.json ./dist/tests/test-tsconfig.json && touch ./dist/tests/file.ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "",

@@ -7,17 +7,17 @@ import { glob } from "glob";
 import pluralize from "pluralize";
 import { JsonMessage } from '@ctring/eslint-plugin-typeorm/messages';
 
-export interface Result {
+export interface Message {
   filePath: string;
   fromLine: number;
   toLine: number;
   fromColumn: number;
   toColumn: number;
-  message: JsonMessage;
+  content: JsonMessage;
 }
 
 export interface Output {
-  results: Result[];
+  messages: Message[];
   doneFiles: string[];
 }
 
@@ -52,7 +52,7 @@ async function analyze(
 
   console.log(`Found ${files.length} ${pluralize("file", files.length)}`);
 
-  const results: Result[] = [];
+  const messages: Message[] = [];
   const doneFiles: Set<string> = new Set();
 
   // Load existing output if needed
@@ -60,8 +60,8 @@ async function analyze(
     const existingOutput = fs.readFileSync(outDir, 'utf8');
     const output = JSON.parse(existingOutput) as Output;
 
-    output.results.forEach((result) => {
-      results.push(result);
+    output.messages.forEach((result) => {
+      messages.push(result);
     });
 
     output.doneFiles.forEach((file) => {
@@ -105,15 +105,14 @@ async function analyze(
         for (const message of lintResult.messages) {
           let parsed = tryParse(message.message);
           if (parsed) {
-            const result: Result = {
+            messages.push({
               filePath: relativePath,
               fromLine: message.line - 1,
               toLine: (message.endLine || message.line) - 1,
               fromColumn: message.column - 1,
               toColumn: (message.endColumn || message.column) - 1,
-              message: parsed,
-            };
-            results.push(result);
+              content: parsed,
+            });
           } else {
             console.error(message.message);
           }
@@ -127,7 +126,7 @@ async function analyze(
 
     // Write output
     const output: Output = {
-      results,
+      messages,
       doneFiles: Array.from(doneFiles),
     };
     fs.writeFileSync(outDir, JSON.stringify(output, null, 4));

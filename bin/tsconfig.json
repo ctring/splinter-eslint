@@ -1,20 +1,12 @@
 {
     "compilerOptions": {
-      "target": "es2020",
-      "module": "node16",
+      "target": "ES2022",
+      "module": "Node16",
       "strict": true,
       "outDir": "dist",
-      "esModuleInterop": true,
-      "allowJs": true,
       "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true,
       "sourceMap": true,
-      "declaration": false,
-      "moduleResolution": "node16",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noImplicitAny": false,
-      "jsx": "react-jsx"
+      "declaration": true,
     },
     "include": ["src/**/*"],
 }
